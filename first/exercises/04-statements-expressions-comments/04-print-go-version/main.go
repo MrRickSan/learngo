@@ -6,23 +6,25 @@
 //
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+)
 
 // ---------------------------------------------------------
-// EXERCISE: Print names
+// EXERCISE: Print the Go Version
 //
-//  Print your name and your best friend's name using
-//  Println twice
+//  1. Look at the runtime package documentation
+//  2. Find the func that returns the Go version
+//  3. Print the Go version by calling that func
+//
+// HINT
+//  It's here: https://golang.org/pkg/runtime
 //
 // EXPECTED OUTPUT
-//  YourName
-//  YourBestFriendName
-//
-// BONUS
-//  Use `go run` first.
-//  And after that use `go build` and run your program.
+//  "go1.10"
 // ---------------------------------------------------------
+
 func main() {
-	fmt.Println(1, true, "RickSan")
-	fmt.Println("Rick")
+	fmt.Println(runtime.Version())
 }

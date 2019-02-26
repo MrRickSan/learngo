@@ -9,20 +9,16 @@ package main
 import "fmt"
 
 // ---------------------------------------------------------
-// EXERCISE: Print names
+// EXERCISE: Shy Semicolons
 //
-//  Print your name and your best friend's name using
-//  Println twice
+//  1. Try to type your statements by separating them using
+//     semicolons
 //
-// EXPECTED OUTPUT
-//  YourName
-//  YourBestFriendName
+//  2. Observe how Go fixes them for you
 //
-// BONUS
-//  Use `go run` first.
-//  And after that use `go build` and run your program.
 // ---------------------------------------------------------
 func main() {
-	fmt.Println(1, true, "RickSan")
-	fmt.Println("Rick")
+	num := 1
+	num += 2
+	fmt.Println(num)
 }

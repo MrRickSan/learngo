@@ -4,25 +4,21 @@
 // Learn Go Programming Course
 // License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 //
+
 package main
 
-import "fmt"
-
 // ---------------------------------------------------------
-// EXERCISE: Print names
+// EXERCISE: Comment out
 //
-//  Print your name and your best friend's name using
-//  Println twice
+//  Use single and multiline comments to comment Printlns.
 //
 // EXPECTED OUTPUT
-//  YourName
-//  YourBestFriendName
-//
-// BONUS
-//  Use `go run` first.
-//  And after that use `go build` and run your program.
+//  You shouldn't see any output after you're done.
 // ---------------------------------------------------------
+
 func main() {
-	fmt.Println(1, true, "RickSan")
-	fmt.Println("Rick")
+	// fmt.Println("hello")
+	/*fmt.Println("how")
+	fmt.Println("are")
+	fmt.Println("you")*/
 }
