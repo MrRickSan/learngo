@@ -1,0 +1,1 @@
+fmt.Println("a non-english letter:", unicode)
