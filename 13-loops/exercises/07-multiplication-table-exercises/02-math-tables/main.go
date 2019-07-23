@@ -122,11 +122,11 @@ Valid ops one of: ` + validOps
 func main() {
 	args := os.Args
 
-	switch len(args) {
-	case 1:
+	switch l := len(args); {
+	case l <= 1:
 		fmt.Println(errUsage)
 		return
-	case 2:
+	case l == 2:
 		if strings.IndexAny(args[1], "*/-+%") != -1 {
 			fmt.Println(errSize)
 			fmt.Println(errUsage)
