@@ -7,6 +7,12 @@
 
 package main
 
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Infinite Kill
 //
@@ -52,4 +58,15 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	characters := [4]string{"\\", "/", "|", "-"}
+	var i int
+
+	for {
+		i = rand.Intn(4)
+
+		fmt.Printf("\r%s Please Wait. Processing....",
+			characters[i])
+
+		time.Sleep(250 * time.Millisecond)
+	}
 }

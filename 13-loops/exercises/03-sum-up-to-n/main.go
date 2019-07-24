@@ -7,6 +7,12 @@
 
 package main
 
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Sum up to N
 //
@@ -35,4 +41,35 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+
+	const (
+		errNoValues = "Please inform the min and max values"
+		errNumbers  = "wrong numbers"
+	)
+
+	var sum int
+
+	args := os.Args[1:]
+
+	if len(args) < 2 {
+		fmt.Println(errNoValues)
+		return
+	}
+
+	min, err1 := strconv.Atoi(args[0])
+	max, err2 := strconv.Atoi(args[1])
+	if err1 != nil || err2 != nil || min >= max {
+		fmt.Println(errNumbers)
+		return
+	}
+
+	for i := min; i <= max; i++ {
+		fmt.Print(i)
+
+		if i < max {
+			fmt.Print(" + ")
+		}
+		sum += i
+	}
+	fmt.Printf(" = %d\n", sum)
 }
