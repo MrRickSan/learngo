@@ -46,36 +46,36 @@ Wanna play?
 `
 )
 
-//TODO: Refactor
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	args := os.Args[1:]
 
-	if len(args) < 1 {
-		fmt.Printf(usage, maxTurns)
-		return
-	}
-
 	var (
-		mode  string
-		guess int
-		err   error
+		mode    string
+		guess   int
+		verbose bool
+		err     error
 	)
 
-	if len(args) == 2 {
+	switch l := len(args); {
+	case l < 1:
+		fmt.Printf(usage, maxTurns)
+		return
+	case l == 1:
+		guess, err = strconv.Atoi(args[0])
+		if err != nil {
+			fmt.Println("Not a number.")
+			return
+		}
+	case l > 1:
 		mode = args[0]
 		guess, err = strconv.Atoi(args[1])
 		if err != nil || mode != "-v" {
 			fmt.Println("Usage: [-v] [NUMBER]")
 			return
 		}
-	} else {
-		guess, err = strconv.Atoi(args[0])
-		if err != nil {
-			fmt.Println("Not a number.")
-			return
-		}
+		verbose = true
 	}
 
 	if guess < 0 {
@@ -85,7 +85,7 @@ func main() {
 
 	for turn := 0; turn < maxTurns; turn++ {
 		n := rand.Intn(guess + 1)
-		if mode == "-v" {
+		if verbose {
 			fmt.Printf("%d ", n)
 		}
 
