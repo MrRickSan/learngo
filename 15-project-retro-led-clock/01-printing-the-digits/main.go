@@ -1,27 +1,9 @@
 package main
 
-import (
-	"fmt"
-)
-
-const (
-	Ric       = 3
-	ric       = 1
-	other     = true
-	PublicVar = "test"
-)
-
-// TODO: remove all added code
-func PublicFunc() int {
-	localvar := PublicVar
-	return localvar
-}
+import "fmt"
 
 func main() {
-	fmt.Println(ric, Ric)
 	type placeholder [5]string
-
-	PublicFunc()
 
 	zero := placeholder{
 		"███",
