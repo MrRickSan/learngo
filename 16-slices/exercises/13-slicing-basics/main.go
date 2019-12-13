@@ -1,5 +1,11 @@
 package main
 
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Slice the numbers
 //
@@ -48,7 +54,41 @@ package main
 //
 // ---------------------------------------------------------
 
+var nums, evens, odds []int
+
 func main() {
 	// uncomment the declaration below
-	// data := "2 4 6 1 3 5"
+	data := "2 4 6 1 3 5"
+
+	stringSlice := strings.Fields(data)
+
+	// convert the string slice to int slice
+	for _, v := range stringSlice {
+		n, err := strconv.Atoi(v)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		nums = append(nums, n)
+	}
+
+	fmt.Println("nums:", nums)
+
+	// get evens and odds from nums slice
+	for _, n := range nums {
+		if n%2 == 0 {
+			evens = append(evens, n)
+		} else {
+			odds = append(odds, n)
+		}
+
+	}
+
+	fmt.Println("evens:", evens)
+	fmt.Println("odds:", odds)
+	fmt.Println("middle:", nums[len(nums)/2-1:len(nums)/2+1])
+	fmt.Println("first 2:", nums[:2])
+	fmt.Println("last 2:", nums[len(nums)-2:])
+	fmt.Println("evens last 1:", evens[len(evens)-1:])
+	fmt.Println("odds last 2:", odds[len(odds)-2:])
 }
