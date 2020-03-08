@@ -44,8 +44,8 @@ func main() {
 	//     Observe how the slice and its backing array change.
 	//
 	//
-	// ...
-	// s.Show("2nd step", names)
+	names = append(names, "einstein", "tesla", "aristo")
+	s.Show("2nd step", names)
 
 	// ########################################################
 	//
@@ -61,8 +61,9 @@ func main() {
 	//
 	//     So: Overwrite and print the names slice.
 	//
-	// ...
-	// s.Show("3rd step", names)
+	names = make([]string, 0, 5)
+	names = append(names, "einstein", "tesla", "aristo")
+	s.Show("3rd step", names)
 
 	// ########################################################
 	//
@@ -74,13 +75,11 @@ func main() {
 	//
 	//     Observe how its backing array stays the same.
 	//
-	//
-	// Array (uncomment):
-	// moreNames := [...]string{"plato", "khayyam", "ptolemy"}
-	//
-	// ...
-	//
-	// s.Show("4th step", names)
+	moreNames := [...]string{"plato", "khayyam", "ptolemy"}
+	copy(names[3:5], moreNames[:2])
+	names = names[:cap(names)]
+
+	s.Show("4th step", names)
 
 	// ########################################################
 	//
@@ -95,12 +94,12 @@ func main() {
 	//
 	//     Print the clone slice before and after the append.
 	//
-	//
-	// ...
-	// s.Show("5th step (before append)", clone)
-	//
-	// ...
-	// s.Show("5th step (after append)", clone)
+	clone := make([]string, 3, 5)
+	copy(clone, names[len(names)-3:])
+	s.Show("5th step (before append)", clone)
+
+	clone = append(clone, names[:2]...)
+	s.Show("5th step (after append)", clone)
 
 	// ########################################################
 	//
@@ -120,8 +119,11 @@ func main() {
 	//     Print the `clone` and `sliced` slices.
 	//
 	//
-	// ...
-	// s.Show("6th step", clone, sliced)
+	sliced := clone[1:4:4]
+	sliced = append(sliced, "hypatia")
+	clone[2] = "elder"
+
+	s.Show("6th step", clone, sliced)
 }
 
 //
