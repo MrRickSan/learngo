@@ -7,6 +7,8 @@ import (
 )
 
 func main() {
+	// To get input from a file:
+	// go run main.go < proverbs.txt
 	in := bufio.NewScanner(os.Stdin)
 
 	defer os.Stdin.Close()
